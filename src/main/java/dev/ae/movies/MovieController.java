@@ -1,6 +1,5 @@
 package dev.ae.movies;
 
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +18,7 @@ public class MovieController {
     private MovieService movieService;
     @GetMapping("/")
     public ResponseEntity<List<Movie>> allMovies(){
-        return new ResponseEntity<List<Movie>>(movieService.getAllMovies(), HttpStatus.OK);
+        return new ResponseEntity<List<Movie>>(this.movieService.getAllMovies(), HttpStatus.OK);
     }
     @GetMapping("/{imdbdId}")
     public ResponseEntity<Optional<Movie>> getSingleMovie(@PathVariable String imdbdId){
